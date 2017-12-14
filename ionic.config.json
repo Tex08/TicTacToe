@@ -1,0 +1,8 @@
+{
+  "name": "TicTacToe",
+  "app_id": "21eb7510",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
