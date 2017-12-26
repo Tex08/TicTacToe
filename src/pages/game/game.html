@@ -7,6 +7,10 @@
 </ion-header>
 
 <ion-content padding>
+
+	<p>
+		It is currently {{this.display}}'s turn
+	</p>
 	<ion-grid class="board">
 	<ion-row>
 		<ion-col class="cell" (click)="handleMove(0)">
@@ -50,4 +54,6 @@
 		</ion-row>
 	-->
 	</ion-grid>
+
+	<button ion-button round (click)="reset()">Reset</button>
 </ion-content>
