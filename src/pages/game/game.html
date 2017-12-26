@@ -5,3 +5,55 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
+
+<ion-content padding>
+
+	<p>
+		It is currently {{this.display}}'s turn
+	</p>
+	<ion-grid class="board">
+	<ion-row>
+		<ion-col class="cell" (click)="handleMove(0)">
+			{{squares[0]}}
+		</ion-col>
+		<ion-col class="cell" (click)="handleMove(1)">
+			{{squares[1]}}
+		</ion-col>
+		<ion-col class="cell" (click)="handleMove(2)">
+			{{squares[2]}}
+		</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col class="cell" (click)="handleMove(3)">
+			{{squares[3]}}
+		</ion-col>
+		<ion-col class="cell" (click)="handleMove(4)">
+			{{squares[4]}}
+		</ion-col>
+		<ion-col class="cell" (click)="handleMove(5)">
+			{{squares[5]}}
+		</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col class="cell" (click)="handleMove(6)">
+			{{squares[6]}}
+		</ion-col>
+		<ion-col class="cell" (click)="handleMove(7)">
+			{{squares[7]}} 
+		</ion-col>
+		<ion-col class="cell" (click)="handleMove(8)">
+			{{squares[8]}}
+		</ion-col>
+	</ion-row>
+
+	<!--
+		<ion-row *ngFor="let row of [0,1,2]">
+			<ion-col col-4 class="cell"
+				*ngFor="let col of [0,1,2]">
+			</ion-col>
+		</ion-row>
+	-->
+	</ion-grid>
+
+	<button ion-button round (click)="reset()">Reset</button>
+</ion-content>
