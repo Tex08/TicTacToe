@@ -15,6 +15,9 @@ export class GamePage {
 
   constructor(public navCtrl: NavController) {
     this.message = "It is currently "+this.display+"'s turn";
+    for(var i=0;i<9;i++) {
+      this.squares[i] = "";
+    }
   }
 
   handleMove(position) : void {
@@ -23,12 +26,12 @@ export class GamePage {
   		this.display = this.display === "X" ? "O" : "X";
       this.message = "It is currently "+this.display+"'s turn";
   		this.squares[position] = this.player;
+      console.log(position);
       if (this.checkWin()) {
         this.win = true;
         this.message = this.player+" has made a Tic Tac Toe! \n (Press the reset button to play again)";
       }
   	}
-  	//this.squares[position] = "O";
   }
 
   reset() : void {
@@ -40,7 +43,26 @@ export class GamePage {
   }
 
   checkWin() : boolean {
-    return true;
+    if (this.squares[0] === this.squares[1] && this.squares[1] === this.squares[2]
+        && this.squares[0] !== "" ||
+        this.squares[0] === this.squares[3] && this.squares[3] === this.squares[6]
+        && this.squares[0] !== "" ||
+        this.squares[0] === this.squares[4] && this.squares[4] === this.squares[8]
+        && this.squares[0] !== "" ||
+        this.squares[3] === this.squares[4] && this.squares[4] === this.squares[5]
+        && this.squares[3] !== "" ||
+        this.squares[6] === this.squares[7] && this.squares[7] === this.squares[8]
+        && this.squares[6] !== "" ||
+        this.squares[6] === this.squares[4] && this.squares[4] === this.squares[2]
+        && this.squares[6] !== "" ||
+        this.squares[1] === this.squares[4] && this.squares[4] === this.squares[7]
+        && this.squares[1] !== "" ||
+        this.squares[2] === this.squares[5] && this.squares[5] === this.squares[8]
+        && this.squares[2] !== "") {
+
+      return true;
+    }
+    return false;
   }
 
 }
