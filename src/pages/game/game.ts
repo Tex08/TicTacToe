@@ -31,6 +31,11 @@ export class GamePage {
         this.win = true;
         this.message = this.player+" has made a Tic Tac Toe! \n (Press the reset button to play again)";
       }
+      if (this.win === false) {
+        if (this.checkDraw()) {
+          this.message = "The game ended in a draw. \n (Press the reset button to play again)";
+        }
+      }
   	}
   }
 
@@ -60,6 +65,19 @@ export class GamePage {
         this.squares[2] === this.squares[5] && this.squares[5] === this.squares[8]
         && this.squares[2] !== "") {
 
+      return true;
+    }
+    return false;
+  }
+
+  checkDraw() : boolean {
+    var num = 0;
+    for(var i=0;i<this.squares.length;i++) {
+      if (this.squares[i] === "X" || this.squares[i] === "O") {
+        num++;
+      }
+    }
+    if(num === 9) {
       return true;
     }
     return false;
